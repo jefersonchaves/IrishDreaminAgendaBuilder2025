@@ -410,7 +410,7 @@
       const savedSessionsDiv = document.getElementById('savedSessions');
       savedSessionsDiv.innerHTML = ''; // Clear previous saved sessions
       // Sort saved sessions by time before displaying
-      const sortedSavedSessions = savedSessions.slice();
+      const sortedSavedSessions = savedSessions.slice().sort(compareTimes);
       sortedSavedSessions.forEach(session => {
         const sessionDiv = document.createElement('div');
         sessionDiv.className = 'session';
