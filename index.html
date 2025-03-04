@@ -389,6 +389,15 @@
         savedSessionsDiv.appendChild(sessionDiv);
       });
     }
+    
+    function saveSession(sessionTitle) {
+      const session = sessionsData.find(s => s.title === sessionTitle);
+      if (session && !savedSessions.find(s => s.title === sessionTitle)) {
+        savedSessions.push(session);
+        localStorage.setItem('savedSessions', JSON.stringify(savedSessions)); // Save to local storage
+        displaySavedSessions();
+      }
+    }
 
     function removeSavedSession(sessionTitle) {
       savedSessions = savedSessions.filter(session => session.title !== sessionTitle);
