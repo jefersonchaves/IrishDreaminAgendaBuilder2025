@@ -49,54 +49,102 @@
 
   <script>
     const sessionsData = [{
-        time: "9:00 AM - 10:20 AM",
-        title: "Opening Remarks & Main Keynote: AI in the Enterprise - Navigating Innovation and Ethics",
-        tracks: ["AI", "All"]
+        "time": "9:00 AM - 10:20 AM",
+        "title": "Opening Remarks & Main Keynote: AI in the Enterprise - Navigating Innovation and Ethics",
+        "tracks": ["All", "AI", "Architect", "Developer", "Non-Profit"],
+        "description": "Join us for a thought-provoking keynote panel discussion at Irish Dreamin' 2025, where we explore the transformative role of AI in the enterprise. This unique session brings together voices from the Irish community to discuss the challenges and opportunities presented by AI, focusing on real-world experiences. Our panellists will share insights on recent AI implementations, discuss the balance between innovation and ethical considerations, and examine the future of AI in Ireland. Don't miss this opportunity to engage with leading minds and gain valuable perspectives on AI's evolving role in our workplaces and society.",
+        "speakers": ["Deirdre Ahern", "Franny Hsiao", "Kumar Prashant Srivastav", "Sean Moynihan"]
       },
       {
-        time: "10:30 AM",
-        title: "Get Started with Agentforce",
-        tracks: ["All"]
+        "time": "10:30 AM",
+        "title": "Get Started with Agentforce",
+        "tracks": ["All", "Admin", "AI"],
+        "description": "In this 90-minute interactive workshop, discover how to use Agentforce for employee assistance by examining a standard out-of-the-box (OOTB) agent. Explore standard agent actions, including Query Records, Identify Record by Name, and Summarize Records, before learning how to create custom actions that expand agent capabilities. Please note: This workshop follows a BYOD (Bring Your Own Device) policy. Participants must bring their own laptops, as these will not be provided.",
+        "speakers": ["Darren Hendrick"]
       },
       {
-        time: "10:30 AM",
-        title: "Accelerating Success - Empowering Charities",
-        tracks: ["Non-Profit", "All"]
+        "time": "10:30 AM",
+        "title": "Accelerating Success - Empowering Charities",
+        "tracks": ["All", "Non-Profit"],
+        "description": "To show how Enclude Accelerator packages can help non-profits start their CRM journey in a fast, affordable and scalable way, and build a foundation for future work. Introduction Who Are Enclude? The Challenge - Technology Barriers for Charities: Charities often rely on bespoke systems that can become difficult to maintain over time. Common Challenges include: High Costs, Time Constraints, Limited Resources & Expertise, Future Uncertainty. Empowering Charities with Purpose-Built Solutions: To address these challenges, Enclude supports non-profits by providing tailored technology solutions designed for impact. Our accelerator packages offer: Faster implementation, allowing organizations to get up and running quickly. Cost-effective solutions, ensuring that more funding goes toward frontline services. Scalable technology, enabling organizations to grow and adapt without technical roadblocks. Real-World Impact: Many charities have already transformed their operations with Enclude's solutions. For example: eStart has helped small charities streamline operations and improve service delivery. eService enables organizations to manage casework and program data securely and efficiently. What's Next? The non-profit sector is constantly evolving, and so is the technology that supports it. Join us as we explore how digital solutions can empower charities to work smarter, not harder. Product Demonstration",
+        "speakers": ["Elizabeth Kelly", "James Quinn"]
       },
       {
-        time: "10:30 AM",
-        title: "The importance of Al Literacy in Business Education",
-        tracks: ["AI", "All"]
+        "time": "10:30 AM",
+        "title": "AI for Business - Is Academia Ready?",
+        "tracks": ["All", "AI"],
+        "description": "This session will explore the readiness of academia in preparing graduates around AI usage to operate effectively in the business space after graduation. Key points include: Importance of AI literacy for graduates entering business. AI in Business Academia & current integration in curricula. Institutional, student & staff (un)preparedness for AI. Challenges in AI education and linkage with business outside college. Case Studies: experiential learning, project based approaches showing some successful AI integration examples. Future Outlook: Emerging trends in AI business education. Q&A Session",
+        "speakers": ["Joe Houghton"]
       },
       {
-        time: "10:30 AM",
-        title: "The Holy Trinity of Apex - Modularity, Coupling and Cohesion",
-        tracks: ["Developer", "All"]
+        "time": "10:30 AM",
+        "title": "The Holy Trinity of Apex - Modularity, Coupling and Cohesion",
+        "tracks": ["All", "Developer"],
+        "description": "Being a senior developer isn't just about years of experience, it's about truly understanding foundational concepts like modularity, coupling, and cohesion. These are at the heart of many design patterns. I'll show how mastering these three ideas can help you write cleaner Apex code. Key points include: Introduction to Modularity, Coupling, and Cohesion. Practical examples of how to apply these concepts. When to Keep Things Together or Apart.",
+        "speakers": ["Pablo Gonzalez"]
       },
       {
-        time: "10:30 AM",
-        title: "Build Data Quality Into Your Org",
-        tracks: ["Admin", "All"]
+        "time": "10:30 AM",
+        "title": "Build Data Quality Into Your Org",
+        "tracks": ["All", "Architect"],
+        "description": "In this session, you'll learn how to build data quality into your Salesforce org from the ground up. We'll cover key aspects like: Importance of data governance planning. Defining data quality. Architecting your app for data quality. Reporting, monitoring and improving data quality.",
+        "speakers": ["Skye Tyler"]
       },
       {
-        time: "10:30 AM",
-        title: "Formulas and LifeHacks for the Everyday Admin",
-        tracks: ["Admin", "All"]
+        "time": "10:30 AM",
+        "title": "Formulas and LifeHacks for the Everyday Admin",
+        "tracks": ["All", "Admin"],
+        "description": "As a Salesforce Admin you often have to troubleshoot, think on your feet, and \"MacGyver\" stuff that isn't always in the Owner's Manual. In this session you'll learn simple, yet powerful \"Plug & Play\" Formulas, Tips & Tricks to solve everyday problems and turn you into an Admin Action Hero! We'll cover topics like: Using Basic Math to simplify Complex Formulas. Using the TEXT Function to unlock Picklist Fields. Using a Checkbox to test Formula Logic. The Hidden Magic of the Opportunity Stage Field. The Greatest Formula Ever Written.",
+        "speakers": ["Steve Molis"]
       },
       {
-        time: "11:20 AM",
-        title: "Key Architecture Anti-Patterns: Avoid Common Design Mistakes",
-        tracks: ["Architect", "All"]
+        "time": "10:30 AM",
+        "title": "Key Architecture Anti-Patterns: Avoid Common Design Mistakes",
+        "tracks": ["All", "Architect"],
+        "description": "In this session, I'll cover critical architecture anti-patterns that can jeopardize your projects. Using real-world examples, I'll highlight common design mistakes and share strategies to avoid them. Participants will gain practical tips to improve your design skills and prevent costly errors.",
+        "speakers": ["Ankita Dhamgaya"]
+      },
+      {
+        "time": "11:20 AM",
+        "title": "Unmasking Hidden Costs: Unused Salesforce Managed Packages",
+        "tracks": ["All", "Admin"],
+        "description": "Ever feel like you're paying for Salesforce Managed Packages that no one's really using? You're not alone. In this session we dig into the goldmine of Salesforce Package Usage Logs. We'll show you how to use these logs to uncover which packages are gathering dust and which are truly driving value. Key points include: Introduction: Issue of unused Salesforce Managed Packages. Understanding Salesforce Package Usage Logs. Demonstration: Using logs to identify underused packages. Identifying Value: Determining valuable packages. Saving Strategies: Spotting underused packages. Making smarter decisions. Q&A: Addressing audience queries.",
+        "speakers": ["Jakub Stefaniak"]
+      },
+      {
+        "time": "11:20 AM",
+        "title": "The Key to Salesforce Project Success: Team Cohesion",
+        "tracks": ["All", "Architect"],
+        "description": "Team cohesion is vital for Salesforce success. Drawing from real projects, learn strategies to build trust, align goals, and foster collaboration. This session explores overcoming challenges and strengthening team dynamics to create a thriving project environment. Key points include: Importance of team dynamics. Challenges in Cohesion: Examples of misaligned teams and their impact on projects. Strategies for Building Cohesion: Actionable steps to improve team collaboration. Success Story: A case study demonstrating the power of team cohesion. Q&A: Open forum for audience questions.",
+        "speakers": ["Joel Chadet"]
+      },
+      {
+        "time": "11:20 AM",
+        "title": "Using Custom Objects as a Non-Profit Org",
+        "tracks": ["All", "Non-Profit"],
+        "description": "How The Soar Foundation has used Salesforce's Custom Objects to build a unique platform that works exactly for us. We are a non-profit that run experiential, wellbeing workshops for teens and we use Salesforce to store important and sensitive data. Key points include: Intro to Soar, what we do and why we needed a customizable platform. Examples of custom objects that we have built 'Workshops', 'Facilitators', 'Feedback Form' etc and how they were built using screenshots on slides to show the building process e.g. what fields were added in, what the page looks like, who needs permission or access to these. How using these Custom Objects has helped our org to centralize our data and keep it safe.",
+        "speakers": ["Naoise O'Brien"]
+      },
+      {
+        "time": "11:20 AM",
+        "title": "The Modern BA's Toolkit: AI-Powered Discovery",
+        "tracks": ["AI", "All"],
+        "description": "Explore how AI amplifies your discovery process, from stakeholder interviews to requirements analysis. Learn to",
+        "speakers": ["Pei Mun Lim"]
       },
       {
         time: "11:20 AM",
         title: "Unmasking Hidden Costs: Unused Salesforce Managed Packages",
-        tracks: ["Admin", "All"]
+        tracks: ["Admin", "All"],
+        description: "Ever feel like you're paying for Salesforce Managed Packages that no one's really using? You're not alone. In this session we dig into the goldmine of Salesforce Package Usage Logs. We'll show you how to use these logs to uncover which packages are gathering dust and which are truly driving value.",
+        speakers: ["Jakub Stefaniak"]
       },
       {
         time: "11:20 AM",
         title: "The Key to Salesforce Project Success: Team Cohesion",
-        tracks: ["All"]
+        tracks: ["All"],
+        description: "Team cohesion is vital for Salesforce success. Drawing from real projects, learn strategies to build trust, align goals, and foster collaboration. This session explores overcoming challenges and strengthening team dynamics to create a thriving project environment.",
+        speakers: ["Joël Chadet"]
       },
       {
         time: "11:20 AM",
@@ -270,15 +318,17 @@
 
     function displaySessions(sessions) {
       const sessionsDiv = document.getElementById('sessions');
-      sessionsDiv.innerHTML = ''; // Clear previous sessions
+      sessionsDiv.innerHTML = '';
       sessions.sort(compareTimes).forEach(session => {
         const sessionDiv = document.createElement('div');
         sessionDiv.className = 'session';
         sessionDiv.innerHTML = `
-                    <h3>${session.title}</h3>
-                    <p>Time: ${session.time}</p>
-                    <button onclick="saveSession('${session.title}')">Save Session</button>
-                `;
+            <h3>${session.title}</h3>
+            <p>Time: ${session.time}</p>
+            <p>Description: ${session.description}</p>
+            <p>Speakers: ${session.speakers.join(', ')}</p>
+            <button onclick="saveSession('${session.title}')">Save Session</button>
+        `;
         sessionsDiv.appendChild(sessionDiv);
       });
     }
@@ -291,13 +341,22 @@
       displaySessions(filteredSessions);
     }
 
-    function saveSession(sessionTitle) {
-      const session = sessionsData.find(s => s.title === sessionTitle);
-      if (session && !savedSessions.find(s => s.title === sessionTitle)) {
-        savedSessions.push(session);
-        localStorage.setItem('savedSessions', JSON.stringify(savedSessions)); // Save to local storage
-        displaySavedSessions();
-      }
+    function displaySavedSessions() {
+      const savedSessionsDiv = document.getElementById('savedSessions');
+      savedSessionsDiv.innerHTML = '';
+      const sortedSavedSessions = savedSessions.slice().sort(compareTimes);
+      sortedSavedSessions.forEach(session => {
+        const sessionDiv = document.createElement('div');
+        sessionDiv.className = 'session';
+        sessionDiv.innerHTML = `
+            <h3>${session.title}</h3>
+            <p>Time: ${session.time}</p>
+            <p>Description: ${session.description}</p>
+            <p>Speakers: ${session.speakers.join(', ')}</p>
+            <button onclick="removeSavedSession('${session.title}')">Remove</button>
+        `;
+        savedSessionsDiv.appendChild(sessionDiv);
+      });
     }
 
     function removeSavedSession(sessionTitle) {
