@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irish Dreamin' 2025 Agenda Builder</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    .session {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .filter-buttons button {
+      margin-right: 10px;
+    }
+
+    .saved-sessions {
+      border: 1px solid blue;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Irish Dreamin' 2025 Agenda</h1>
+
+  <div class="filter-buttons">
+    <button onclick="filterSessions('All')">All</button>
+    <button onclick="filterSessions('Admin')">Admin</button>
+    <button onclick="filterSessions('Architect')">Architect</button>
+    <button onclick="filterSessions('Developer')">Developer</button>
+    <button onclick="filterSessions('Non-Profit')">Non-Profit</button>
+    <button onclick="filterSessions('AI')">AI</button>
+  </div>
+
+  <div id="sessions"></div>
+
+  <div class="saved-sessions">
+    <h2>My Saved Sessions</h2>
+    <div id="savedSessions"></div>
+  </div>
+
+  <script>
+    const sessionsData = [{
+        time: "9:00 AM - 10:20 AM",
+        title: "Opening Remarks & Main Keynote: AI in the Enterprise - Navigating Innovation and Ethics",
+        tracks: ["AI", "All"]
+      },
+      {
+        time: "10:30 AM",
+        title: "Get Started with Agentforce",
+        tracks: ["All"]
+      },
+      {
+        time: "10:30 AM",
+        title: "Accelerating Success - Empowering Charities",
+        tracks: ["Non-Profit", "All"]
+      },
+      {
+        time: "10:30 AM",
+        title: "The importance of Al Literacy in Business Education",
+        tracks: ["AI", "All"]
+      },
+      {
+        time: "10:30 AM",
+        title: "The Holy Trinity of Apex - Modularity, Coupling and Cohesion",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "10:30 AM",
+        title: "Build Data Quality Into Your Org",
+        tracks: ["Admin", "All"]
+      },
+      {
+        time: "10:30 AM",
+        title: "Formulas and LifeHacks for the Everyday Admin",
+        tracks: ["Admin", "All"]
+      },
+      {
+        time: "11:20 AM",
+        title: "Key Architecture Anti-Patterns: Avoid Common Design Mistakes",
+        tracks: ["Architect", "All"]
+      },
+      {
+        time: "11:20 AM",
+        title: "Unmasking Hidden Costs: Unused Salesforce Managed Packages",
+        tracks: ["Admin", "All"]
+      },
+      {
+        time: "11:20 AM",
+        title: "The Key to Salesforce Project Success: Team Cohesion",
+        tracks: ["All"]
+      },
+      {
+        time: "11:20 AM",
+        title: "Using Custom Objects as a Non-Profit Org",
+        tracks: ["Non-Profit", "All"]
+      },
+      {
+        time: "11:20 AM",
+        title: "AI Discovery for Consultants",
+        tracks: ["AI", "All"]
+      },
+      {
+        time: "11:50 AM",
+        title: "Driving Impact with Non-Profit Marketing Automation",
+        tracks: ["Non-Profit", "All"]
+      },
+      {
+        time: "11:50 AM",
+        title: "The 4 Roles of a Super Salesforce Admin",
+        tracks: ["Admin", "All"]
+      },
+      {
+        time: "11:50 AM",
+        title: "Build your First Code Builder and VS Code Extension",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "11:50 AM",
+        title: "Streamline LWC Development with Complex Template Expressions",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "12:00 PM",
+        title: "Artificial Intelligent Document Processing",
+        tracks: ["AI", "All"]
+      },
+      {
+        time: "12:10 PM",
+        title: "TDX25 Highlights",
+        tracks: ["All"]
+      },
+      {
+        time: "12:45 PM - 1:45 PM",
+        title: "Lunch",
+        tracks: ["All"]
+      },
+      {
+        time: "1:50 PM",
+        title: "AI App Dev Campfire",
+        tracks: ["AI", "All"]
+      },
+      {
+        time: "1:50 PM",
+        title: "Unlock Communication with Lightning Message Channels",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "1:50 PM",
+        title: "AI Superpowers for Service Cloud: Beyond Agentforce",
+        tracks: ["AI", "All"]
+      },
+      {
+        time: "1:50 PM",
+        title: "Designing Solid Solution Architecture: The Composable Way",
+        tracks: ["Architect", "All"]
+      },
+      {
+        time: "1:50 PM",
+        title: "Say Hello to Your Contacts with Beaufort12's MailChimp App",
+        tracks: ["Non-Profit", "All"]
+      },
+      {
+        time: "1:50 PM",
+        title: "SOQLuedo - Learn SOQL by Solving a Murder!",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "2:40 PM",
+        title: "Get Started with Agentforce",
+        tracks: ["All"]
+      },
+      {
+        time: "2:40 PM",
+        title: "Dynamic LWC: With Great Power Comes Great Responsibility",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "2:40 PM",
+        title: "Replace Change Sets with Github Actions",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "2:40 PM",
+        title: "Top Tips for Managing Non Profit Salesforce Orgs",
+        tracks: ["Non-Profit", "All"]
+      },
+      {
+        time: "2:40 PM",
+        title: "Automation Smackdown: Clicks vs Code",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "3:00 PM",
+        title: "Designing Solid Solution Architecture: The Composable Way",
+        tracks: ["Architect", "All"]
+      },
+      {
+        time: "3:10 PM",
+        title: "Data Migration Between Orgs with SFDX Data Move Utility",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "3:10 PM",
+        title: "Choose the Right Devops Model for your Project",
+        tracks: ["Developer", "All"]
+      },
+      {
+        time: "3:10 PM",
+        title: "Applying a Permission Set Led Security Model",
+        tracks: ["Admin", "All"]
+      },
+      {
+        time: "3:10 PM",
+        title: "AI Agents from the Trenches - What works, What doesn't",
+        tracks: ["AI", "All"]
+      },
+      {
+        time: "4:15 PM - 5:00 PM",
+        title: "Demo Jam",
+        tracks: ["All"]
+      },
+      {
+        time: "7:00 PM Onwards",
+        title: "The Official Irish Dreamin' Afterparty",
+        tracks: ["All"]
+      },
+      {
+        time: "7:30 PM",
+        title: "Welcome & Opening Remarks",
+        tracks: ["All"]
+      },
+      {
+        time: "7:45 PM",
+        title: "Salesforce Hall of Fame MVP Steve Molis",
+        tracks: ["All"]
+      },
+      {
+        time: "8:15 PM",
+        title: "Opening Act Pauric O'Meara",
+      },
+    ];
+    let savedSessions = JSON.parse(localStorage.getItem('savedSessions')) || [];
+
+    function compareTimes(a, b) {
+      const timeA = parseTime(a.time);
+      const timeB = parseTime(b.time);
+      if (timeA < timeB) {
+        return -1;
+      }
+      if (timeA > timeB) {
+        return 1;
+      }
+      return 0;
+    }
+
+    function parseTime(timeString) {
+      let startTime = timeString.split(' - ')[0]; // Get the start time
+      let endTime = timeString.split(' - ')[1]; // Get the end time
+      let time;
+      if (endTime === undefined) {
+        time = startTime;
+      } else {
+        time = startTime;
+      }
+      let hours = parseInt(time.split(':')[0]);
+      let minutes = parseInt(time.split(':')[1].split(' ')[0]);
+      let ampm = time.split(' ')[1];
+      if (ampm === 'PM' && hours !== 12) {
+        hours += 12;
+      } else if (ampm === 'AM' && hours === 12) {
+        hours = 0;
+      }
+      return hours * 60 + minutes; // Convert to minutes for easy comparison
+    }
+
+    function displaySessions(sessions) {
+      const sessionsDiv = document.getElementById('sessions');
+      sessionsDiv.innerHTML = ''; // Clear previous sessions
+      sessions.sort(compareTimes).forEach(session => {
+        const sessionDiv = document.createElement('div');
+        sessionDiv.className = 'session';
+        sessionDiv.innerHTML = `
+                    <h3>${session.title}</h3>
+                    <p>Time: ${session.time}</p>
+                    <button onclick="saveSession('${session.title}')">Save Session</button>
+                `;
+        sessionsDiv.appendChild(sessionDiv);
+      });
+    }
+
+    function filterSessions(track) {
+      let filteredSessions = sessionsData;
+      if (track !== 'All') {
+        filteredSessions = sessionsData.filter(session => session.tracks.includes(track));
+      }
+      displaySessions(filteredSessions);
+    }
+
+    function saveSession(sessionTitle) {
+      const session = sessionsData.find(s => s.title === sessionTitle);
+      if (session && !savedSessions.find(s => s.title === sessionTitle)) {
+        savedSessions.push(session);
+        localStorage.setItem('savedSessions', JSON.stringify(savedSessions)); // Save to local storage
+        displaySavedSessions();
+      }
+    }
+
+    function removeSavedSession(sessionTitle) {
+      savedSessions = savedSessions.filter(session => session.title !== sessionTitle);
+      localStorage.setItem('savedSessions', JSON.stringify(savedSessions)); // Update local storage
+      displaySavedSessions();
+    }
+
+    function displaySavedSessions() {
+      const savedSessionsDiv = document.getElementById('savedSessions');
+      savedSessionsDiv.innerHTML = ''; // Clear previous saved sessions
+      // Sort saved sessions by time before displaying
+      const sortedSavedSessions = savedSessions.slice().sort(compareTimes);
+      sortedSavedSessions.forEach(session => {
+        const sessionDiv = document.createElement('div');
+        sessionDiv.className = 'session';
+        sessionDiv.innerHTML = `
+                    <h3>${session.title}</h3>
+                    <p>Time: ${session.time}</p>
+                    <button onclick="removeSavedSession('${session.title}')">Remove</button>
+                `;
+        savedSessionsDiv.appendChild(sessionDiv);
+      });
+    }
+    // Initial display of all sessions
+    filterSessions('All');
+    displaySavedSessions();
+  </script>
+</body>
+
+</html>
