@@ -230,9 +230,9 @@
       },
       {
         time: "7:00 PM Onwards",
-        title: "The Official Irish Dreamin' Afterparty",
+        title: "The Official Irish Dreamin Afterparty",
         tracks: ["All"]
-      },
+      }
     ];
     let savedSessions = JSON.parse(localStorage.getItem('savedSessions')) || [];
 
@@ -310,7 +310,7 @@
       const savedSessionsDiv = document.getElementById('savedSessions');
       savedSessionsDiv.innerHTML = ''; // Clear previous saved sessions
       // Sort saved sessions by time before displaying
-      const sortedSavedSessions = savedSessions.slice().sort(compareTimes);
+      const sortedSavedSessions = savedSessions.slice();
       sortedSavedSessions.forEach(session => {
         const sessionDiv = document.createElement('div');
         sessionDiv.className = 'session';
